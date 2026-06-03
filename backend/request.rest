@@ -1,0 +1,74 @@
+### 1. Ambil Semua Data User (GET)
+GET http://localhost:5000/users
+
+###
+
+### 2. Tambah Data User Siswa (POST)
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "nama_lengkap": "Egianta Ginting",
+    "username": "egi277",
+    "kelas" : "XII PPLG",
+    "nis": "252705",
+    "password": "2008",
+    "confPassword": "2008"
+}
+
+###
+
+### 3. Tambah Data User Admin (POST)
+# NIS dan Kelas dihapus karena tidak diperlukan untuk Admin
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "nama_lengkap": "Admin Pengaduan",
+    "username": "admin2526",
+    "password": "timadmin26",
+    "confPassword": "timadmin26",
+    "level": "admin"
+}
+
+###
+
+### 4. Tes Login via Username (POST)
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username": "egi277",
+    "password": "2008"
+}
+
+###
+
+### 5. Tes Login via NIS (POST)
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username": "252705",
+    "password": "2008"
+}
+
+###
+
+### 6. Tes Login Admin (POST)
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username": "admin2526",
+    "password": "timadmin26"
+}
+
+### 7. Paksa Admin (PATCH)
+# ID user kamu di foto adalah 6
+PATCH http://localhost:5000/users/6
+Content-Type: application/json
+
+{
+    "level": "admin"
+}
